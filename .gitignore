@@ -1,9 +1,11 @@
 .idea
 typings/**
+*.iml
 node_modules
 jspm_packages
 link-checker-results.txt
 **/*npm-debug.log.*
+*.ts
 *.js
 *.js.map
 e2e/**/*.js
