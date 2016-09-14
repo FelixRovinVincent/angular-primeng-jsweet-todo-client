@@ -4,6 +4,8 @@ import static def.angular.platform_browser_dynamic.Globals.platformBrowserDynami
 
 import app.module.AppModule;
 
+import def.primeng.primeng.Button;
+
 public class Globals {
 
 	static {

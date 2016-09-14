@@ -10,14 +10,14 @@ import jsweet.lang.Decorator;
 public @interface Component {
 	String selector();
 
-	String template();
+	String template() default "";
 
 	String templateUrl() default "";
 
 	String moduleId() default "";
 
 	String[] styleUrls() default {};
-	
+
 	Class<?>[] directives() default {};
 
 }
