@@ -1,9 +1,19 @@
+<style>
+  :host /deep/ .ui-datalist-content.ui-widget-content {
+    border: none;
+  }
+  :host /deep/ .ui-panel-titlebar {
+    display: none;
+  }
+  :host /deep/ .ui-panel {
+    margin: 5px;
+  }
+</style>
 <div>
   <p-dataList [value]="tasks">
-    <header>List of Cars</header>
-    <footer>Choose from the list.</footer>
     <template let-task>
+      <p-panel>
       {{task.name}}
+      </p-panel>
     </template>
   </p-dataList>
-</div>

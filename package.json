@@ -40,7 +40,7 @@
 
     "angular2-in-memory-web-api": "0.0.18",
     "bootstrap": "^3.3.6",
-    "primeng": "^1.0.0-beta.14"
+    "primeng": "^1.0.0-beta.15"
   },
   "devDependencies": {
     "concurrently": "^2.2.0",
