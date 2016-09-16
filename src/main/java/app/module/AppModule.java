@@ -2,6 +2,7 @@ package app.module;
 
 import app.component.AppComponent;
 import app.component.TasksComponent;
+import app.service.TaskService;
 import def.angular.core.NgModule;
 import def.angular.http.HttpModule;
 import def.angular.platform_browser.BrowserModule;
@@ -21,7 +22,8 @@ import def.primeng.primeng.PanelModule;
     AppComponent.class,
     TasksComponent.class
   },
-  bootstrap = {AppComponent.class}
+  bootstrap = {AppComponent.class},
+  providers = {TaskService.class}
 )
 public class AppModule {
 

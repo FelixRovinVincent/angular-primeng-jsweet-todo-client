@@ -11,15 +11,16 @@ import def.primeng.primeng.DataListModule;
 )
 public class TasksComponent {
 
-  private Array<Task> tasks;
+  private Task[] tasks;
   private TaskService taskService;
 
-  public TasksComponent() {
-//  public TasksComponent(TaskService taskService) {
-    tasks = new Array<>();
-    for (int i = 0; i < 10; i++) {
-      tasks.push(new Task("task" + i, "foo", "Read Java EE MVC 1.0 Spec", true));
-    }
+//  public TasksComponent() {
+  public TasksComponent(TaskService taskService) {
+    this.taskService = taskService;
+//    tasks = new Task[10];
+//    for (int i = 0; i < 10; i++) {
+//      tasks.push(new Task("task" + i, "foo", "Read Java EE MVC 1.0 Spec", true));
+//    }
   }
 
   public void ngOnInit() {
@@ -29,11 +30,8 @@ public class TasksComponent {
     });
   }
 
-  public Array<Task> getTasks() {
+  public Task[] getTasks() {
     return tasks;
   }
 
-  public void setTasks(Array<Task> tasks) {
-    this.tasks = tasks;
-  }
 }

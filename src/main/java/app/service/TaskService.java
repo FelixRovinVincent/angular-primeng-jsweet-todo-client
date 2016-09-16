@@ -21,15 +21,15 @@ import jsweet.lang.JSON;
 public class TaskService {
 
   private Http http;
-  private static String url = "http://localhost:8080/tasks/";
+  private static String url = "http://localhost:8080/todo/tasks/";
 
   public TaskService(Http http) {
     this.http = http;
   }
 
-  public Promise<Array<Task>> getTasks() {
-    return this.http.get(TaskService.url + "/list/").toPromise()
-      .thenOnFulfilledFunction(res -> new Array<>((Task[]) res.json()))
+  public Promise<Task[]> getTasks() {
+    return this.http.get(TaskService.url + "list/").toPromise()
+      .thenOnFulfilledFunction(res -> (Task[]) res.json())
       .thenOnFulfilledFunction(data -> {
           return data;
         }
