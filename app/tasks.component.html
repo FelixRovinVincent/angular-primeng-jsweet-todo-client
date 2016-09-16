@@ -1,3 +1,9 @@
 <div>
-  Tasks!
+  <p-dataList [value]="tasks">
+    <header>List of Cars</header>
+    <footer>Choose from the list.</footer>
+    <template let-task>
+      {{task.name}}
+    </template>
+  </p-dataList>
 </div>
