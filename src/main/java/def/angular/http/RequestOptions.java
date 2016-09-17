@@ -26,25 +26,25 @@ package def.angular.http;
  *
  * @experimental
  */
-public class RequestOptions {
+public class RequestOptions extends RequestOptionsArgs {
   /**
    * Http method with which to execute a {@link Request}.
    * Acceptable methods are defined in the {@link RequestMethod} enum.
    */
-  String reuqestMethod;
+  public String reuqestMethod;
   // TODO: Add RequestMethod
   /**
    * {@link Headers} to be attached to a {@link Request}.
    */
-  Headers headers;
+  public Headers headers;
   /**
    * Body to be used when creating a {@link Request}.
    */
-  Object body;
+  public Object body;
   /**
    * Url with which to perform a {@link Request}.
    */
-  String url;
+  public String url;
   /**
    * Search parameters to be included in a {@link Request}.
    */
@@ -54,11 +54,6 @@ public class RequestOptions {
    */
   boolean withCredentials;
 
-  // TODO: add ResponseContentType
-  //ResponseContentType responseContentType;
-
-  public RequestOptions(RequestOptionsArgs args) {
-  };
 
   /**
    * Creates a copy of the `RequestOptions` instance, using the optional input as values to override

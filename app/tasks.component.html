@@ -2,18 +2,45 @@
   :host /deep/ .ui-datalist-content.ui-widget-content {
     border: none;
   }
+
   :host /deep/ .ui-panel-titlebar {
     display: none;
   }
+
   :host /deep/ .ui-panel {
     margin: 5px;
+  }
+
+  input {
+    width: 80%
+  }
+
+  #task /deep/ .ui-toolbar {
+    background-color: white;
   }
 </style>
 <div>
   <p-dataList [value]="tasks">
+    <header>
+      <p-toolbar>
+        <div class="ui-toolbar-group-right">
+          <button pButton type="button" title="Add a task" icon="fa-plus" iconPos="left" (click)="add(task)"></button>
+          <button pButton type="button" title="Refresh task list" icon="fa-refresh" iconPos="left"
+                  (click)="refreshTasks(true)"></button>
+        </div>
+      </p-toolbar>
+    </header>
     <template let-task>
       <p-panel>
-      {{task.name}}
+        <p-toolbar id="task">
+          <input id="in" type="text" pInputText [(ngModel)]="task.name">
+          <div class="ui-toolbar-group-right">
+            <p-checkbox id="completed" [(ngModel)]="task.completed" binary="true"></p-checkbox>
+            <button id="save" pButton type="button" title="Save" icon="fa-save" iconPos="left"
+                    (click)="save($index, task)"></button>
+          </div>
+        </p-toolbar>
       </p-panel>
     </template>
   </p-dataList>
+  <p-growl [value]="messages"></p-growl>

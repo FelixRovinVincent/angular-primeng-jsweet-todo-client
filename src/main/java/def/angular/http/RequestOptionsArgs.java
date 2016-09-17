@@ -9,20 +9,6 @@ package def.angular.http;
  */
 public class RequestOptionsArgs {
 
-  public RequestOptionsArgs(Headers headers) {
-    this.headers = headers;
-  }
-
-  public RequestOptionsArgs(String url, String method, String search, Headers headers,
-                            Body body, boolean withCredentials) {
-    this.url = url;
-    this.method = method;
-    this.search = search;
-    this.headers = headers;
-    this.body = body;
-    this.withCredentials = withCredentials;
-  }
-
   String url;
   // TODO: Add requestMethod type
   String method;

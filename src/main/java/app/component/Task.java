@@ -18,9 +18,6 @@ public class Task {
     private boolean completed;
 
 
-    public Task() {
-    }
-
     public Task(String id, String userId, String name, boolean completed) {
         this.id = id;
         this.userId = userId;

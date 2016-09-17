@@ -4,11 +4,13 @@ import app.component.Task;
 import def.angular.core.Injectable;
 import def.angular.http.Headers;
 import def.angular.http.Http;
-import def.angular.http.RequestOptionsArgs;
+import def.angular.http.RequestOptions;
 import def.angular.http.Response;
 import def.es6_promise.Promise;
 import jsweet.lang.Array;
 import jsweet.lang.JSON;
+
+import static jsweet.util.Globals.$get;
 
 /**
  * Simple class for retreiving and updating tasks.
@@ -27,9 +29,17 @@ public class TaskService {
     this.http = http;
   }
 
-  public Promise<Task[]> getTasks() {
+  public Promise<Array<Task>> getTasks() {
     return this.http.get(TaskService.url + "list/").toPromise()
-      .thenOnFulfilledFunction(res -> (Task[]) res.json())
+      .thenOnFulfilledFunction(res -> {
+        Object[] jsonTasks = (Object[]) res.json();
+        Array<Task> tasks = new Array();
+        for (int i = 0; i < jsonTasks.length; i++) {
+          tasks.push(new Task($get(jsonTasks[i], "id"), $get(jsonTasks[i], "userId"),
+            $get(jsonTasks[i], "name"), $get(jsonTasks[i], "completed")));
+        }
+        return tasks;
+      })
       .thenOnFulfilledFunction(data -> {
           return data;
         }
@@ -38,24 +48,32 @@ public class TaskService {
 
   public Promise<Task> add(Task task) {
     String body = JSON.stringify(task);
-    return this.http.post(TaskService.url, body, getRequestOptions())
+    return this.http.post(TaskService.url + "add", body, getRequestOptions())
       .toPromise()
-      .thenOnFulfilledFunction(res -> (Task) res.json());
+      .thenOnFulfilledFunction(res -> {
+        Object jsonTask = res.json();
+        return new Task($get(jsonTask, "id"), $get(jsonTask, "userId"), $get(jsonTask, "name"), $get(jsonTask, "completed"));
+      });
   }
 
-  public Promise<Task> update(Task task) {
-    return this.http.patch(TaskService.url + "id", getRequestOptions()).toPromise()
-      .thenOnFulfilledFunction(res -> (Task) res.json());
+  public Promise<Response> update(Task task) {
+    String body = JSON.stringify(task);
+    return this.http.put(TaskService.url + task.getId(), body, getRequestOptions()).toPromise()
+      .thenOnFulfilledFunction(res -> {
+        return res;
+      });
   }
 
   public Promise<Response> remove(String id) {
-    return this.http.delete(TaskService.url + "id", getRequestOptions()).toPromise();
+    return this.http.delete(TaskService.url + id, getRequestOptions()).toPromise();
   }
 
-  private RequestOptionsArgs getRequestOptions() {
+  private RequestOptions getRequestOptions() {
     Headers headers = new Headers();
     headers.append("Content-Type", "application/json");
-    return new RequestOptionsArgs(headers);
+    RequestOptions options = new RequestOptions();
+    options.headers = headers;
+    return options;
   }
 
 }
