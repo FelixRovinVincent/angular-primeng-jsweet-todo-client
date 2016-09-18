@@ -10,11 +10,4 @@ import static jsweet.dom.Globals.alert;
 )
 public class AppComponent {
 
-  public void onclick() {
-
-    alert("focus!");
-
-  }
-
-
 }
