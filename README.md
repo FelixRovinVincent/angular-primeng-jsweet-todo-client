@@ -1,8 +1,17 @@
-# Angular 2 QuickStart Source in Java (JSweet-powered)
+# Example Todo app build with Angular 2, PrimeNG, and Java (using JSweet on the front-end and JAX-RS on the back-end)
 
-This repository is an adaptation of the [Angular 2 quickstart with TypeScript](https://github.com/angular/quickstart). The only difference is that the source code is written in Java, and compiled to TypeScript using [JSweet](https://github.com/cincheo/jsweet). So, this project is potentially a good starting point to start building an Angular 2 application with Java.
+This is part of the sample application for the presentation "Full Stack Java with JSweet, Angular 2, PrimeNG, and JAX-RS", 
+originally given at JavaOne in September, 2016 by [Kito D. Mann](https://www.linkedin.com/in/kitomann) from [Virtua, Inc.](https://virtua.tech). It demonstrates how you 
+can write a [Angular 2](https://angular.io) application with [PrimeNG](http://www.primefaces.org/primeng/) components using Java (courtesy of the
+ [JSweet](http://jsweet.org) transpiler), and have it talk to a standard Java back-end using [JAX-RS](https://jax-rs-spec.java.net/).
 
-For details on how to use this project, please refer to the [original project](https://github.com/angular/quickstart), which provides extensive documentation, and to the [angular.io quickstart](https://angular.io/docs/ts/latest/quickstart.html).
+This repository contains the front-end code; the [back-end](https://github.com/kito99/angular-primeng-jsweet-todo-server) and 
+[slides](https://github.com/kito99/angular-primeng-jsweet-todo-slides) are in separate repositories. 
+
+This project was forked from the [Angular 2 Quickstart with Java](https://github.com/cincheo/jsweet-angular2-quickstart); see that project for a simpler example without a back-end. 
+There is also a [JSweet PrimeNG Quickstart](https://github.com/cincheo/jsweet-primeng-quickstart) project available without a back-end.  
+
+**Special thanks to [Renaud Pawlak](https://github.com/renaudpawlak) (JSweet lead developer) for his extensive assistance with getting this project working!**
 
 ## Prerequisites
 
@@ -19,7 +28,7 @@ Maven (for compiling with JSweet).
 Clone the project.
 
 ```bash
-git clone  https://github.com/cincheo/jsweet-angular2-quickstart my-proj
+git clone  https://github.com/cincheo/jsweet-Angular 2-quickstart my-proj
 cd my-proj
 ```
 
@@ -44,12 +53,15 @@ This will open the application in your browser. If you compile again the Java so
 
 ### How to extend the application
 
-You can add new files in the ``app`` package (``src/main/java``). Please be aware that in JSweet, each package is a module. So, all the classes defined in a given package will belong to the same TypeScript/JavaScript module.
+You can add new classes in the ``app`` package (``src/main/java``). Please be aware that in JSweet, each package is a module. So, all the classes defined in a given package will belong to the same TypeScript/JavaScript module.
 
-A minimal Angular 2 API is defined in the ``def.angular`` package (the ``def`` package in JSweet is by convention similar to a ``d.ts`` file in TypeScript: it holds external declarations). When extending the application, you will need to provide the API elements that you are using and that would be missing in the current definitions.
+New templates should be placed in the ``app`` folder. 
+
+A minimal Angular 2 API is defined in the ``def.angular`` package (the ``def`` package in JSweet is by convention similar to a ``d.ts`` file in TypeScript: it holds external declarations). 
+When extending the application, you will need to provide the API elements that you are using and that would be missing in the current definitions.
 
 If you want to use external JavaSript libraries, check out JSweet candies rather than writing definitions manually. Here definitions have to be written manually for Angular 2 because the corresponding candy does not exist yet.
 
-### Other topics
+### Setup the back-end
 
-Please refer to the [original project](https://github.com/angular/quickstart).
+Visit the [angular-primeng-jsweet-todo-server](https://github.com/kito99/angular-primeng-jsweet-todo-server) project and clone the Java-based back-end built using Jersey and JAX-RS. Read the README for that repository for more information.
