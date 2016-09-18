@@ -1,4 +1,4 @@
-# Example Todo app build with Angular 2, PrimeNG, and Java (using JSweet on the front-end and JAX-RS on the back-end)
+# Example Todo app built with Angular 2, PrimeNG, and Java (using JSweet on the front-end and JAX-RS on the back-end)
 
 This is part of the sample application for the presentation "Full Stack Java with JSweet, Angular 2, PrimeNG, and JAX-RS", 
 originally given at JavaOne in September, 2016 by [Kito D. Mann](https://www.linkedin.com/in/kitomann) from [Virtua, Inc.](https://virtua.tech). It demonstrates how you 
