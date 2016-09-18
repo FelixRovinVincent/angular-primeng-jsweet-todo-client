@@ -51,6 +51,9 @@ npm start
 
 This will open the application in your browser. If you compile again the Java source files, the application will automatically reload. Shut it down manually with Ctrl-C.
 
+NOTE: If you have problems compiling `fileupload.d.ts`, edit the file and replace all references to `DomSanitize` with `DomSanitizationService`. 
+This appears to be a bug with the version of PrimeNG used in the project.
+
 ### How to extend the application
 
 You can add new classes in the ``app`` package (``src/main/java``). Please be aware that in JSweet, each package is a module. So, all the classes defined in a given package will belong to the same TypeScript/JavaScript module.
