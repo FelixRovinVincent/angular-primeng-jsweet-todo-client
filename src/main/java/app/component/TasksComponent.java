@@ -5,6 +5,8 @@ import def.angular.core.Component;
 import def.primeng.primeng.Message;
 import jsweet.lang.Array;
 
+import static jsweet.dom.Globals.console;
+
 @Component(
   selector = "tasks",
   templateUrl = "app/tasks.component.html"
@@ -50,9 +52,20 @@ public class TasksComponent {
         return task;
       });
     } else {
-      // TODO: Add a growl notification or something
       this.taskService.update(task).thenOnFulfilledFunction((res) -> {
         addMessage("info", "Task updated successfully.", null);
+        return res;
+      });
+    }
+  }
+
+  public void remove(int index, Task task) {
+    console.debug("task", task, task.getId());
+    if (task.getId() == null) {
+      removeFromArray(index, task);
+    } else {
+      this.taskService.remove(task).thenOnFulfilledFunction((res) -> {
+        removeFromArray(index, task);
         return res;
       });
     }
@@ -63,7 +76,7 @@ public class TasksComponent {
 //      addMessage("info", "Task updated successfully.", null);
 //      return task;
 //    });
-      tasks.unshift(new Task(null, "you", "", false));
+    tasks.unshift(new Task(null, "you", "", false));
   }
 
   private void addMessage(String sev, String sum, String dtl) {
@@ -74,6 +87,11 @@ public class TasksComponent {
         detail = dtl;
       }
     }};
+  }
+
+  private void removeFromArray(int index, Task task) {
+    addMessage("info", "Task deleted successfully.", null);
+    tasks.splice(index, 1);
   }
 
 }

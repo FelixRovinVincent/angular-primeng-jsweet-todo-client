@@ -12,11 +12,15 @@
   }
 
   input {
-    width: 80%
+    width: 70%;
   }
 
-  #task /deep/ .ui-toolbar {
-    background-color: white;
+  #completed {
+    padding-right: 2px;
+  }
+
+  #completed /deep/ .ui-chkbox {
+    margin-top: 5px;
   }
 </style>
 <div>
@@ -33,11 +37,15 @@
     <template let-task>
       <p-panel>
         <p-toolbar id="task">
-          <input id="in" type="text" pInputText [(ngModel)]="task.name">
-          <div class="ui-toolbar-group-right">
+          <div class="ui-toolbar-group-left">
             <p-checkbox id="completed" [(ngModel)]="task.completed" binary="true"></p-checkbox>
+          </div>
+          <input id="in" type="text" placeholder="What do you want to do today? " pInputText [(ngModel)]="task.name">
+          <div class="ui-toolbar-group-right">
             <button id="save" pButton type="button" title="Save" icon="fa-save" iconPos="left"
                     (click)="save($index, task)"></button>
+            <button id="delete" pButton type="button" title="Delete" icon="fa-trash-o" iconPos="left"
+                    (click)="remove($index, task)"></button>
           </div>
         </p-toolbar>
       </p-panel>

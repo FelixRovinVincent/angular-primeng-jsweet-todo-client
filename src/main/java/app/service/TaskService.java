@@ -23,7 +23,7 @@ import static jsweet.util.Globals.$get;
 public class TaskService {
 
   private Http http;
-  private static String url = "http://localhost:8080/todo/tasks/";
+  private static String url = "http://localhost:8081/todo/tasks/";
 
   public TaskService(Http http) {
     this.http = http;
@@ -33,7 +33,7 @@ public class TaskService {
     return this.http.get(TaskService.url + "list/").toPromise()
       .thenOnFulfilledFunction(res -> {
         Object[] jsonTasks = (Object[]) res.json();
-        Array<Task> tasks = new Array();
+        Array<Task> tasks = new Array<>();
         for (int i = 0; i < jsonTasks.length; i++) {
           tasks.push(new Task($get(jsonTasks[i], "id"), $get(jsonTasks[i], "userId"),
             $get(jsonTasks[i], "name"), $get(jsonTasks[i], "completed")));
@@ -64,8 +64,8 @@ public class TaskService {
       });
   }
 
-  public Promise<Response> remove(String id) {
-    return this.http.delete(TaskService.url + id, getRequestOptions()).toPromise();
+  public Promise<Response> remove(Task task) {
+    return this.http.delete(TaskService.url + task.getId()).toPromise();
   }
 
   private RequestOptions getRequestOptions() {
