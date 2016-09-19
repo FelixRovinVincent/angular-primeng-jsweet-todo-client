@@ -2,7 +2,7 @@
 
 This is part of the sample application for the presentation "Full Stack Java with JSweet, Angular 2, PrimeNG, and JAX-RS", 
 originally given at JavaOne in September, 2016 by [Kito D. Mann](https://www.linkedin.com/in/kitomann) from [Virtua, Inc.](https://virtua.tech). It demonstrates how you 
-can write a [Angular 2](https://angular.io) application with [PrimeNG](http://www.primefaces.org/primeng/) components using Java (courtesy of the
+can write an [Angular 2](https://angular.io) application with [PrimeNG](http://www.primefaces.org/primeng/) components using Java (courtesy of the
  [JSweet](http://jsweet.org) transpiler), and have it talk to a standard Java back-end using [JAX-RS](https://jax-rs-spec.java.net/).
 
 This repository contains the front-end code; the [back-end](https://github.com/kito99/angular-primeng-jsweet-todo-server) and 
@@ -67,4 +67,5 @@ If you want to use external JavaSript libraries, check out JSweet candies rather
 
 ### Setup the back-end
 
-Visit the [angular-primeng-jsweet-todo-server](https://github.com/kito99/angular-primeng-jsweet-todo-server) project and clone the Java-based back-end built using Jersey and JAX-RS. Read the README for that repository for more information.
+Visit the [angular-primeng-jsweet-todo-server](https://github.com/kito99/angular-primeng-jsweet-todo-server) project and clone the Java-based back-end built using Jersey and JAX-RS. 
+See the README for that repository for more information.
