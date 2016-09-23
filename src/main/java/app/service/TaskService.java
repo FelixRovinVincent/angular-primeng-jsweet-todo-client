@@ -30,6 +30,7 @@ public class TaskService {
   }
 
   public Promise<Array<Task>> getTasks() {
+
     return this.http.get(TaskService.url + "list/").toPromise()
       .thenOnFulfilledFunction(res -> {
         Object[] jsonTasks = (Object[]) res.json();

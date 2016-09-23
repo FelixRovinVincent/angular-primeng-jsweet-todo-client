@@ -17,13 +17,8 @@ public class TasksComponent {
   private TaskService taskService;
   private Message[] messages;
 
-  //  public TasksComponent() {
   public TasksComponent(TaskService taskService) {
     this.taskService = taskService;
-//    tasks = new Task[10];
-//    for (int i = 0; i < 10; i++) {
-//      tasks.push(new Task("task" + i, "foo", "Read Java EE MVC 1.0 Spec", true));
-//    }
   }
 
   public void ngOnInit() {
@@ -34,7 +29,7 @@ public class TasksComponent {
     this.taskService.getTasks().thenOnFulfilledFunction(tasks -> {
       this.tasks = tasks;
       if (showMessages) {
-        addMessage("info", "Tasks refreshed successfully.", null);
+        addMessage("info", "Tasks refreshed successfully. This really works!", null);
       }
       return tasks;
     });
