@@ -23,7 +23,7 @@ import static jsweet.util.Globals.$get;
 public class TaskService {
 
   private Http http;
-  private static String url = "http://localhost:8080/todo/tasks/";
+  private static String url = "http://localhost:8081/todo/tasks/";
 
   public TaskService(Http http) {
     this.http = http;
