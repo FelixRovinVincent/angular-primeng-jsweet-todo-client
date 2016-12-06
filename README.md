@@ -13,6 +13,9 @@ There is also a [JSweet PrimeNG Quickstart](https://github.com/cincheo/jsweet-pr
 
 **Special thanks to [Renaud Pawlak](https://github.com/renaudpawlak) (JSweet lead developer) for his extensive assistance with getting this project working!**
 
+>NOTE: This project uses the [Angular 2.0RC5](https://github.com/jsweet-candies/candy-angular2) and [PrimeNG 1.0.0-beta.14](https://github.com/jsweet-candies/candy-primeng) JSweet candies. In order to upgrade 
+ to newer versions, those candies must be manually upgraded. If you do that, please create a pull request!
+
 ## Prerequisites
 
 Node.js > v4.x.x and npm > v3.x.x. 
