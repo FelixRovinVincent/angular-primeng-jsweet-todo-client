@@ -4,7 +4,7 @@ import app.component.Task;
 import def.angular.core.Injectable;
 import def.angular.http.Headers;
 import def.angular.http.Http;
-import def.angular.http.RequestOptions;
+import def.angular.http.RequestOptionsArgs;
 import def.angular.http.Response;
 import def.es6_promise.Promise;
 import jsweet.lang.Array;
@@ -69,12 +69,10 @@ public class TaskService {
     return this.http.delete(TaskService.url + task.getId()).toPromise();
   }
 
-  private RequestOptions getRequestOptions() {
+  private RequestOptionsArgs getRequestOptions() {
     Headers headers = new Headers();
     headers.append("Content-Type", "application/json");
-    RequestOptions options = new RequestOptions();
-    options.headers = headers;
-    return options;
+    return new RequestOptionsArgs(headers);
   }
 
 }

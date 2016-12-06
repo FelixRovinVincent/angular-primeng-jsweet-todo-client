@@ -29,7 +29,7 @@ public class TasksComponent {
     this.taskService.getTasks().thenOnFulfilledFunction(tasks -> {
       this.tasks = tasks;
       if (showMessages) {
-        addMessage("info", "Tasks refreshed successfully. This really works!", null);
+        addMessage("info", "Tasks refreshed successfully.", null);
       }
       return tasks;
     });
