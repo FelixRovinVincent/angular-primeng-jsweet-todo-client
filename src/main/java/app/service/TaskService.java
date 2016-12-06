@@ -23,14 +23,13 @@ import static jsweet.util.Globals.$get;
 public class TaskService {
 
   private Http http;
-  private static String url = "http://localhost:8081/todo/tasks/";
+  private static String url = "http://localhost:8080/todo/tasks/";
 
   public TaskService(Http http) {
     this.http = http;
   }
 
   public Promise<Array<Task>> getTasks() {
-
     return this.http.get(TaskService.url + "list/").toPromise()
       .thenOnFulfilledFunction(res -> {
         Object[] jsonTasks = (Object[]) res.json();
@@ -72,7 +71,8 @@ public class TaskService {
   private RequestOptionsArgs getRequestOptions() {
     Headers headers = new Headers();
     headers.append("Content-Type", "application/json");
-    return new RequestOptionsArgs(headers);
+    RequestOptionsArgs options = new RequestOptionsArgs(null, null, null, headers, null, false);
+    return options;
   }
 
 }

@@ -7,11 +7,8 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
-  }, "exclude": [
-        "target",
-        ".jsweet",
-        "node_modules"
-  ]
+    "noImplicitAny": false
+  },
+  "compileOnSave": false,
+  "buildOnSave": false
 }
